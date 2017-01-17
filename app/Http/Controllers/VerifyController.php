@@ -7,8 +7,7 @@
  */
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 
 class VerifyController extends Controller
 {
@@ -18,15 +17,8 @@ class VerifyController extends Controller
      * @return mixed
      *
      */
-    public function verificationApply(){
-        $params = json_extract();
-        //查询验证问题
-        $question = DB::table('d_user_que')->where('USER_ID', $params['UserId'])->value('USER_QUE');
-        if(empty($question)){
-            return ['code'=>2800];
-        }else{
-            return ['code'=>2000,'msg'=>$question];
-        }
+    public function verificationApply(Request $request){
+        return $request->all();
     }
 
     /**
@@ -34,22 +26,7 @@ class VerifyController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function verification(){
-        $params = json_extract();
-        //检查参数
-        if(!array_has($params,['Answer'])){
-            return ['code'=>2500];
-        }
-        //查询验证问题
-        $ans = DB::table('d_user_que')->where('USER_ID', $params['UserId'])->value('USER_ANS');
-        if(empty($ans)){
-            return ['code'=>2800];
-        }else{
-            if($ans == $params['Answer']){
-                return ['code'=>2000];
-            }else{
-                return ['code'=>2900];
-            }
-        }
+    public function verification(Request $request){
+        return $request->all();
     }
 }
