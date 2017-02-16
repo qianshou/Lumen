@@ -37,4 +37,12 @@ $app->get('blood/getBloodInfo','BloodController@getBloodInfo');
 //$app->group(['middleware' => 'userAuth'],function() use ($app){
 //});
 
+//获取系统推送消息
+$app->get('sys/GetMessage','SystemController@GetMessage');
+//提交反馈消息
+$app->post('sys/SubmitFeedback','SystemController@SubmitFeedback');
+//获取系统版本号等信息
+$app->get('sys/GetSysInfo','SystemController@GetSysInfo');
+
+
 $app->post('index/index','IndexController@index');
