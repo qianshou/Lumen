@@ -24,7 +24,7 @@ class SystemController extends Controller
             $time = '0000-00-00 00:00:00';
         }
         $where = [
-            ['MESSAGE_TIME', '>=', $time],
+            ['MESSAGE_TIME', '>', $time],
         ];
         $items = DB::table('s_msg')->where($where)->get();
         $ret = array();

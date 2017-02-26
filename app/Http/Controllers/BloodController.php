@@ -20,6 +20,10 @@ class BloodController extends Controller
      */
     public function submitBloodInfo(){
         $params = json_extract();
+        //检查参数
+        if(!array_has($params,['UserId','binfos'])){
+            return ['code'=>2500];
+        }
         $UserId = $params['UserId'];
         $binfos = $params['binfos'];
         $multy_insert = [];
@@ -42,6 +46,10 @@ class BloodController extends Controller
      */
     public function submitBigData(){
         $params = json_extract();
+        //检查参数
+        if(!array_has($params,['UserId','binfos'])){
+            return ['code'=>2500];
+        }
         $UserId = $params['UserId'];
         $binfos = $params['binfos'];
         $multy_insert = [];

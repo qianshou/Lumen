@@ -118,7 +118,7 @@ class UserController extends Controller
      */
     public function submitUserInfo(Request $request){
         $params = json_extract();
-        Log::info(var_export($params,true));
+       // Log::info(var_export($params,true));
         //检查参数
         if(!array_has($params,['UserPhone','UserName','UserSex','UserAge','UserHeight','UserWeight','UserBrithday'])){
             return ['code'=>2500];

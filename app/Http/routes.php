@@ -31,6 +31,7 @@ $app->post('verify/verification','VerifyController@verification');
 
 //心率血氧信息接口
 $app->post('blood/submitBloodInfo','BloodController@submitBloodInfo');
+$app->post('blood/submitBigData','BloodController@submitBigData');
 $app->get('blood/getBloodInfo','BloodController@getBloodInfo');
 
 //登录后操作接口
